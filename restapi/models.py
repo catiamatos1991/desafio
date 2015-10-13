@@ -27,19 +27,18 @@ post_save.connect(create_user_profile, sender=User)
 class Music(models.Model):
     artist_name = models.CharField(max_length=20)
     track_title = models.CharField(max_length=140)
-    track_publisher = models.CharField(max_length=140)
     album_title = models.CharField(max_length=140)
 
-    db_table =  '"music"'
+    db_table ='"music"'
 
     def __unicode__(self):
         return self.music
 
 class Playlist(models.Model):
     email = models.CharField(max_length=20)
-    titulo = models.CharField(max_length=140)
+    track_id = models.CharField(max_length=140)
 
-    db_table =  '"playlist"'
+    db_table ='"playlist"'
 
 
     def __unicode__(self):

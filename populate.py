@@ -48,7 +48,10 @@ def parse_json_response_populate(content):
         trackUserFavorite = track.track_user_favorite
 
 
-        cursor.execute ("INSERT INTO music (track_id, album_title, artist_name, track_title, track_duration, track_number, track_disc_number, track_file, track_publisher, track_url,track_listen_url, track_user_favorite) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)" , (trackID,albumTitle,artistName,trackTitle,trackDuration,trackNumber,trackDiskNumber,trackFile,trackPublisher,trackUrl,trackListenUrl, trackUserFavorite))
+        #cursor.execute ("INSERT INTO restapi_music (track_id, album_title, artist_name, track_title, track_duration, track_number, track_disc_number, track_file, track_publisher, track_url,track_listen_url, track_user_favorite) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)" , (trackID,albumTitle,artistName,trackTitle,trackDuration,trackNumber,trackDiskNumber,trackFile,trackPublisher,trackUrl,trackListenUrl, trackUserFavorite))
+        cursor.execute ("INSERT INTO restapi_music (artist_name, track_title, album_title) VALUES (%s, %s, %s)" , (artistName,trackTitle, albumTitle))
+
+
 
         #Commit the changes.
         conn.commit()

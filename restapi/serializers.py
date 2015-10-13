@@ -15,11 +15,11 @@ class UserSerializer(serializers.ModelSerializer):
 class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
-        fields = ('track_id', 'artist_name', 'album_title')
+        fields = ('id', 'track_title', 'artist_name', 'album_title')
 
 class PlaylistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Playlist
-        fields = ('id', 'music', 'user')
+        fields = ('id', 'email', 'track_id')
 
 
