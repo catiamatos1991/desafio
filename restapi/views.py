@@ -1,18 +1,35 @@
-from django.contrib.auth.models import User
+from django.shortcuts import render
+from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_protect, ensure_csrf_cookie
+from rest_framework import permissions, viewsets
 
 from .models import Music
 from .models import Playlist
+from django.contrib.auth.models import User
+
 
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+from restapi.permissions import IsAuthorOrReadOnly
+
+
 from restapi.serializers import UserSerializer
 from restapi.serializers import MusicSerializer
 from restapi.serializers import PlaylistSerializer
 
 from django.http import Http404
+
+
+@csrf_protect
+@ensure_csrf_cookie
+def index(request):
+    user = authenticate(username='bob', password='bob')
+    if user is not None:
+        login(request, user)
+        return render(request, 'restapi/index.html')
 
 
 class UserList(APIView):
@@ -171,3 +188,21 @@ class PlaylistDetail(APIView):
         playlist = self.get_object(pk)
         playlist.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class PlayListViewSet(viewsets.ModelViewSet):
+    queryset = Playlist.objects.all()
+    serializer_class = PlaylistSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsAuthorOrReadOnly)
+
+class MusicListViewSet(viewsets.ModelViewSet):
+    queryset = Music.objects.all()
+    serializer_class = MusicSerializer
+
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    def pre_save(self, obj):
+        obj.user = self.request.user

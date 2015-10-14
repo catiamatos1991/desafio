@@ -11,3 +11,4 @@ class PlaylistAdmin(admin.ModelAdmin):
 
 admin.site.register(Music, MusicAdmin)
 admin.site.register(Playlist, PlaylistAdmin)
+

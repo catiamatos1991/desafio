@@ -39,8 +39,7 @@ def parse_json_response_populate(content):
         artistName = track.artist_name
         trackTitle = track.track_title
         trackDuration = track.track_duration
-        trackNumber = track.track_number
-        trackDiskNumber = track.track_disc_number
+        cover = track. track_image_file
         trackFile = track.track_file
         trackPublisher = track.track_publisher
         trackUrl = track.track_url
@@ -49,7 +48,7 @@ def parse_json_response_populate(content):
 
 
         #cursor.execute ("INSERT INTO restapi_music (track_id, album_title, artist_name, track_title, track_duration, track_number, track_disc_number, track_file, track_publisher, track_url,track_listen_url, track_user_favorite) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)" , (trackID,albumTitle,artistName,trackTitle,trackDuration,trackNumber,trackDiskNumber,trackFile,trackPublisher,trackUrl,trackListenUrl, trackUserFavorite))
-        cursor.execute ("INSERT INTO restapi_music (artist_name, track_title, album_title) VALUES (%s, %s, %s)" , (artistName,trackTitle, albumTitle))
+        cursor.execute ("INSERT INTO restapi_music (artist_name, track_title, album_title, cover) VALUES (%s, %s, %s, %s)" , (artistName,trackTitle, albumTitle, cover))
 
 
 
