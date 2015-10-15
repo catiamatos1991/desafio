@@ -1,4 +1,4 @@
-angular.module('tweeterApp', [
+angular.module('desafioApp', [
   'ui.router',
   'ngResource',
   'desafio.services',

@@ -29,6 +29,7 @@ class Music(models.Model):
     track_title = models.CharField(max_length=140)
     album_title = models.CharField(max_length=140)
     cover = models.CharField(max_length=140)
+    duration = models.CharField(max_length=20)
     db_table ='"music"'
 
     def __unicode__(self):
@@ -36,9 +37,9 @@ class Music(models.Model):
 
 class Playlist(models.Model):
     #email = models.CharField(max_length=20)
-    email = models.ForeignKey(User)
+    idUser = models.ForeignKey(User)
     #track_id = models.CharField(max_length=140)
-    track_title = models.ForeignKey(Music)
+    idMusic = models.ForeignKey(Music)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:

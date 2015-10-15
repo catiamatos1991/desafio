@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 
 class UserSerializer(serializers.ModelSerializer):
-    musics = PlaylistSerializer(many=True, source="playlist_set")
+    #musics = PlaylistSerializer(many=True, source="Playlist")
 
     class Meta:
         model = User
@@ -34,6 +34,6 @@ class PlaylistSerializer(serializers.ModelSerializer):
     user = serializers.Field(source='user')
     class Meta:
         model = Playlist
-        fields = ('id', 'email', 'track_id', 'timestamp')
+        fields = ('id', 'email', 'track_id', 'timestamp', 'user')
 
 

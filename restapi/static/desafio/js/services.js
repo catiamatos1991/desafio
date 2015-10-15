@@ -1,14 +1,14 @@
 // Resources have the following methods by default:
 // get(), query(), save(), remove(), delete()
 
-angular.module('restapi.services', ['ngResource'])
+angular.module('desafioApp.services', ['ngResource'])
   .factory('Music', function($resource) {
-    return $resource('/restapi/music/');
+    return $resource('/api/music/');
   })
   .factory('User', function($resource) {
-    return $resource('/restapi/users/:id/');
+    return $resource('/api/users/:id/');
   })
   .factory('Playlist', function($resource) {
-    return $resource('/restapi/playlist/');
+    return $resource('/api/playlist/');
   });
 

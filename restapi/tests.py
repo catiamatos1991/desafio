@@ -15,4 +15,4 @@ class DesafioTests(APITestCase):
         error_msg = response.data['text'][0]
 
         self.assertEquals(response.status_code, 400)
-        self.assertEquals(error_msg, 'Text is too short!')
+        self.assertEquals(error_msg, 'Username is too short!')

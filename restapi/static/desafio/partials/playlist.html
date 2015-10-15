@@ -1,14 +1,13 @@
 <div class="tweet-container">
-  <input placeholder="Music List" type="text" class="new-tweet-input" id="new-tweet" ng-model="text">
-  <!-- new tweet submitted here -->
+
   <button class="btn-tweet" id="tweet" ng-click="submitTweet(text)">Add to Favorite</button>
 </div>
 
-<div class="tweets" id="tweets-target">
-  <div class="tweet-container" ng-repeat="tweet in tweets">
+<div class="musics" id="tweets-target">
+  <div class="tweet-container" ng-repeat="music in musics">
     <div class="tweet-body"> [[ music.artist_name ]]</div>
     <div class="tweet-name"> [[ music.track_title ]]</div>
-     <div class="tweet-name"> [[ music.album_title ]]</div>
-    <div class="tweet-time"> [[ tweet.timestamp | date:'medium' ]]</div>
+    <div class="tweet-name"> [[ music.album_title ]]</div>
+    <div class="tweet-name"> [[ user.username ]]</div>
   </div>
 </div>
