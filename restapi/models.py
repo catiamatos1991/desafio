@@ -30,6 +30,7 @@ class Music(models.Model):
     album_title = models.CharField(max_length=140)
     cover = models.CharField(max_length=140)
     duration = models.CharField(max_length=20)
+
     db_table ='"music"'
 
     def __unicode__(self):

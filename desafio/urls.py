@@ -17,11 +17,15 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-
+from rest_framework.routers import DefaultRouter
 
 from restapi import views
 admin.autodiscover()
 
+router = DefaultRouter()
+router.register(r'music', views.MusicViewSet)
+router.register(r'users', views.UserViewSet)
+router.register(r'playlist', views.PlaylistViewSet)
 
 urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
@@ -31,5 +35,8 @@ urlpatterns = patterns('',
                        url(r'^music/(?P<pk>[0-9]+)/$', views.MusicDetail.as_view()),
                        url(r'^playlist/$', views.PlaylistList.as_view()),
                        url(r'^playlist/(?P<pk>[0-9]+)/$', views.PlaylistDetail.as_view()),
+                       url(r'^api/', include(router.urls)),
+                       url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+                       url(r'^$', views.index),
                        )
 
