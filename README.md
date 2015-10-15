@@ -1,0 +1,12 @@
+# Desafio
+  Installation Instructions
+
+    1. Install the Requirements
+    pip install -r requirements.txt
+    
+    2. Sync the DB
+    Fixtures present, so no need to create an auth user.
+    ./manage.py syncdb
+    
+    3. Run the server
+    ./manage.py runserver
