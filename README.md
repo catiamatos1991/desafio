@@ -9,6 +9,8 @@
     
         create schema "database" in mySQL
         run commands: ./manage.py migrate syncdb
+        
+        run populate.py from the project to populate "restapi_music" table with information
     
     3. Run the server
         ./manage.py runserver
