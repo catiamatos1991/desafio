@@ -47,6 +47,7 @@ urlpatterns = [
     url(r'^home/$', views.home, name='home'),
     url(r'^musics/$', views.musics, name='musics'),
     url(r'^myplaylist/$', views.playlist, name='myplaylist'),
+    url(r'^manage', views.manage, name='manage'),
     ]
 
 if settings.DEBUG:
