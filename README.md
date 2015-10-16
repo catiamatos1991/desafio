@@ -8,9 +8,9 @@
       In future no need to create an auth user, but for now:
     
         create schema "database" in mySQL
-        run commands: ./manage.py migrate syncdb
+        run commands: python manage.py migrate syncdb
         
         run populate.py from the project to populate "restapi_music" table with information
     
     3. Run the server
-        ./manage.py runserver
+        python manage.py runserver
